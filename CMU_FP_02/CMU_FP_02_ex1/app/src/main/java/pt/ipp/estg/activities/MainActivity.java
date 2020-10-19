@@ -2,12 +2,12 @@ package pt.ipp.estg.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText mEditText;
@@ -23,19 +23,18 @@ public class MainActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button4);
 
         Intent i = new Intent(MainActivity.this, NewActivity.class);
-        i.putExtra("Text", (mEditText.getText().toString()));
-        setResult(Activity.RESULT_OK, i);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(i);
+                Toast.makeText(MainActivity.this, "Texto escrito: " + mEditText.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                i.putExtra("Text", (mEditText.getText().toString()));
                 startActivity(i);
             }
         });
