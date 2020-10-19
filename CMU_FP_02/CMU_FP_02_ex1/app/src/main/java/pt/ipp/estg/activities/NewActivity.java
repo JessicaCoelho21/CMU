@@ -22,4 +22,9 @@ public class NewActivity extends AppCompatActivity {
         else
             resultado.setText("Something went wrong...");
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }
