@@ -11,21 +11,21 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RelativeLayout"
         android:paddingTop="16dp"
-        android:textSize="18sp"/>
+        android:text="RelativeLayout"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="País"
-        tools:layout_editor_absoluteX="-1dp"
-        android:layout_alignParentLeft="true"
         android:layout_below="@id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="40dp"
         android:layout_toRightOf="@id/spinner2"
-        android:textSize="18sp"/>
+        android:text="País"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="-1dp" />
 
     <Spinner
         android:id="@+id/spinner2"
@@ -44,14 +44,14 @@
         android:id="@+id/radioButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:layout_alignParentLeft="true"
         android:layout_marginStart="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginTop="52dp"
+        android:layout_toRightOf="@id/radioButton4"
         android:text="Opção 1"
-        android:textSize="18sp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/textView4"
-        android:layout_toRightOf="@id/radioButton4"/>
+        android:textSize="18sp" />
 
     <RadioButton
         android:id="@+id/radioButton4"
@@ -71,23 +71,15 @@
         android:id="@+id/button2"
         android:layout_width="366dp"
         android:layout_height="48dp"
+        android:layout_below="@id/radioButton4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="40dp"
+        android:paddingRight="16dp"
         android:text="Ir para TableActivity"
         android:textColor="#000000"
         app:backgroundTint="#C5C5C5"
-        app:iconTint="#FFFFFF"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/radioButton4"
-        android:paddingRight="16dp"/>
-
-
-
-
-
-
-
-
+        app:iconTint="#FFFFFF" />
 
 
 </RelativeLayout>
