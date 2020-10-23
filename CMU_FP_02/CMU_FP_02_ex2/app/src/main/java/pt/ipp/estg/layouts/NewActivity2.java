@@ -7,19 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-    Button mButton;
+public class NewActivity2 extends AppCompatActivity {
+    Button tableButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_new2);
 
-        mButton = findViewById(R.id.button);
+        tableButton = findViewById(R.id.button2);
 
-        Intent i = new Intent(MainActivity.this, NewActivity2.class);
+        Intent i = new Intent(NewActivity2.this, NewActivity1.class);
 
-        mButton.setOnClickListener(new View.OnClickListener() {
+        tableButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(i);
