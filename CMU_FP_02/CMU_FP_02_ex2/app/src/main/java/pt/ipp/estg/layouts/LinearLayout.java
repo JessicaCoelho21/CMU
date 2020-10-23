@@ -7,17 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class LinearLayout extends AppCompatActivity {
     Button mButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.linear_layout);
 
         mButton = findViewById(R.id.button);
 
-        Intent i = new Intent(MainActivity.this, NewActivity2.class);
+        Intent i = new Intent(LinearLayout.this, RelativeLayout.class);
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override

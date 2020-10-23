@@ -7,17 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class NewActivity2 extends AppCompatActivity {
+public class RelativeLayout extends AppCompatActivity {
     Button tableButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new2);
+        setContentView(R.layout.relative_layout);
 
         tableButton = findViewById(R.id.button2);
 
-        Intent i = new Intent(NewActivity2.this, NewActivity1.class);
+        Intent i = new Intent(RelativeLayout.this, TableLayout.class);
 
         tableButton.setOnClickListener(new View.OnClickListener() {
             @Override
