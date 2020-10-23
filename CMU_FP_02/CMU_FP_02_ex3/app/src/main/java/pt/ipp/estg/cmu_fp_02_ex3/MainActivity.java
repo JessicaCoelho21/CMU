@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Integer.valueOf(mEditText.getText().toString()) == 5){
+                if (Integer.valueOf(mEditText.getText().toString()) == 5) {
                     mResultado.setText("O Resultado está correto!");
                 } else {
                     mResultado.setText("O Resultado está errado!");
