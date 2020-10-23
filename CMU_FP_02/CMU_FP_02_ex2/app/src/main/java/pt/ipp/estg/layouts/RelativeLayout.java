@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class RelativeLayout extends AppCompatActivity {
     Button tableButton;
@@ -26,6 +27,7 @@ public class RelativeLayout extends AppCompatActivity {
         tableButton = findViewById(R.id.button2);
         relativeSpinner = findViewById(R.id.spinner2);
         relativeOpt1 = findViewById(R.id.radioButton3);
+        relativeOpt2 = findViewById(R.id.radioButton4);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinnner);
@@ -38,7 +40,14 @@ public class RelativeLayout extends AppCompatActivity {
         tableButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(i);
+                String country = relativeSpinner.getSelectedItem().toString();
+
+                if(country != "Selecione o país..." && (relativeOpt1.isChecked() || relativeOpt2.isChecked())){
+                    startActivity(i);
+                } else{
+                    Toast.makeText(RelativeLayout.this, "Por favor, introduza todos os campos!",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class TableLayout extends AppCompatActivity {
     Button finishButton;
     Spinner tableSpinner;
+    RadioButton tableOpt1, tableOpt2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,8 @@ public class TableLayout extends AppCompatActivity {
 
         finishButton = findViewById(R.id.button3);
         tableSpinner = findViewById(R.id.spinner3);
+        tableOpt1 = findViewById(R.id.radioButton5);
+        tableOpt2 = findViewById(R.id.radioButton6);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinnner);
@@ -35,12 +40,21 @@ public class TableLayout extends AppCompatActivity {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Volta à RelativeActivity
-                finish();
-                System.exit(0);
+                String country = tableSpinner.getSelectedItem().toString();
 
-                //Volta à LinearActivity
-                //startActivity(i);
+                if(country != "Selecione o país..." && (tableOpt1.isChecked() || tableOpt2.isChecked())){
+                    /*
+                    Volta à LinearActivity
+                    startActivity(i);
+                    */
+
+                    //Volta à RelativeActivity
+                    finish();
+                    System.exit(0);
+                } else{
+                    Toast.makeText(TableLayout.this, "Por favor, introduza todos os campos!",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
