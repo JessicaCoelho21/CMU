@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         mEditText = findViewById(R.id.editTextNumber3);
         mButton = findViewById(R.id.button);
 
-        for (i = 0; i < 10; i++) {
+        //for (i = 0; i < 10; i++) {
             mButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-        }
+        //}
 
         //anotherActivity();
     }
