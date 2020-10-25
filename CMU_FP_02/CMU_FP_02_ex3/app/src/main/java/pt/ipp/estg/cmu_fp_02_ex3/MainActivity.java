@@ -9,44 +9,55 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
-    TextView mResultado;
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText mEditText;
     Button mButton;
-    int i = 0;
-    int[] answer = new int[11];
+    TextView mQuestion;
+    int questions = 1, correct = 0, wrong = 0, a = 0, b = 0;
+    Random r = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mResultado = findViewById(R.id.textView3);
         mEditText = findViewById(R.id.editTextNumber3);
         mButton = findViewById(R.id.button);
+        mQuestion = findViewById(R.id.textView);
 
-        //for (i = 0; i < 10; i++) {
-            mButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (Integer.valueOf(mEditText.getText().toString()) == 5) {
-                        answer[i] = Integer.valueOf(mEditText.getText().toString());
-                        mResultado.setText("O Resultado está correto!");
-                    } else {
-                        mResultado.setText("O Resultado está errado!");
-                    }
-                }
-            });
-        //}
+        a = r.nextInt((9 - 0) + 1) + 0;
+        b = r.nextInt((9 - 0) + 1) + 0;
+        mQuestion.setText(a + "+" + b);
 
-        //anotherActivity();
+        mButton.setOnClickListener(this);
     }
 
-    /*
-    protected void anotherActivity() {
-        Intent in = new Intent(MainActivity.this, NewActivity.class);
-        in.putExtra("Text", (answer));
-        startActivity(in);
+    @Override
+    public void onClick(View v) {
+        //mEditText.setText("");
+
+        if (questions == 10) {
+            Intent i = new Intent(MainActivity.this, NewActivity.class);
+            i.putExtra("correct", String.valueOf(correct));
+            startActivity(i);
+        }
+
+        if(mEditText.getText().toString().matches("")){
+            mEditText.setText("0");
+        }
+
+        if (Integer.valueOf(mEditText.getText().toString()) == (a + b)) {
+            correct++;
+        } else {
+            wrong++;
+        }
+
+        a = r.nextInt((9 - 0) + 1) + 0;
+        b = r.nextInt((9 - 0) + 1) + 0;
+
+        mQuestion.setText(a + "+" + b);
+        questions++;
     }
-     */
 }
