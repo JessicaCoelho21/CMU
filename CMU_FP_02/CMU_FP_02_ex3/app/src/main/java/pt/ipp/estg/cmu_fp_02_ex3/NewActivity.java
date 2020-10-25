@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class NewActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView percentage;
-    Button rerun;
+    private TextView percentage;
+    private Button rerun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

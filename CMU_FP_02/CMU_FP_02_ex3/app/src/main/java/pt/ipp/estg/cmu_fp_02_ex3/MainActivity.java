@@ -12,11 +12,11 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText mEditText;
-    Button mButton;
-    TextView mQuestion;
-    int questions = 1, correct = 0, wrong = 0, a = 0, b = 0;
-    Random r = new Random();
+    private EditText mEditText;
+    private Button mButton;
+    private TextView mQuestion;
+    private int questions = 1, correct = 0, wrong = 0, a = 0, b = 0;
+    private Random r = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButton = findViewById(R.id.button);
         mQuestion = findViewById(R.id.textView);
 
-        a = r.nextInt((9 - 0) + 1) + 0;
-        b = r.nextInt((9 - 0) + 1) + 0;
-        mQuestion.setText(a + "+" + b);
+        a = r.nextInt((9 - 0) + 1) ;
+        b = r.nextInt((9 - 0) + 1);
+        mQuestion.setText(a + " + " + b);
 
         mButton.setOnClickListener(this);
     }
@@ -37,6 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         //mEditText.setText("");
+
+        /*
+        Percentagem de 90% quando respostas todas corretas porque aparece uma que não dá para responder
+        Supõe-se que o erro esteja no código em seguida
+         */
 
         if (questions == 10) {
             Intent i = new Intent(MainActivity.this, NewActivity.class);
@@ -54,10 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             wrong++;
         }
 
-        a = r.nextInt((9 - 0) + 1) + 0;
-        b = r.nextInt((9 - 0) + 1) + 0;
+        a = r.nextInt((9 - 0) + 1);
+        b = r.nextInt((9 - 0) + 1);
 
-        mQuestion.setText(a + "+" + b);
+        mQuestion.setText(a + " + " + b);
         questions++;
     }
 }
