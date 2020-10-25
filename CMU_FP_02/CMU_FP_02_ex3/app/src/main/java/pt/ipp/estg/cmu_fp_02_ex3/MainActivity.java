@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButton = findViewById(R.id.button);
         mQuestion = findViewById(R.id.textView);
 
-        a = r.nextInt((9 - 0) + 1) ;
-        b = r.nextInt((9 - 0) + 1);
+        a = r.nextInt(10) ;
+        b = r.nextInt(10);
         mQuestion.setText(a + " + " + b);
 
         mButton.setOnClickListener(this);
@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             wrong++;
         }
 
-        a = r.nextInt((9 - 0) + 1);
-        b = r.nextInt((9 - 0) + 1);
+        a = r.nextInt(10);
+        b = r.nextInt(10);
 
         mQuestion.setText(a + " + " + b);
         questions++;
