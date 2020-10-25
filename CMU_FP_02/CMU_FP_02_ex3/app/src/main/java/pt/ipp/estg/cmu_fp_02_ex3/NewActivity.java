@@ -21,16 +21,20 @@ public class NewActivity extends AppCompatActivity implements View.OnClickListen
         rerun = findViewById(R.id.button2);
 
         String v = getIntent().getStringExtra("correct");
-        int value = Integer.parseInt(v.toString());
-        int result = (value * 100) / 10;
+        int value = Integer.parseInt(v);
+        int result = Math.round((value * 100) / 10);
+        String resultS = Integer.toString(result);
 
-        percentage.setText(String.valueOf(result) + "%");
+        percentage.setText(resultS + "%");
 
         rerun.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        finish();
+        Intent i = new Intent(NewActivity.this, MainActivity.class);
+        startActivity(i);
+
+        //finish();
     }
 }

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
         }
 
-        if(mEditText.getText().toString().matches("")){
+        if (mEditText.getText().toString().matches("")) {
             mEditText.setText("0");
         }
 
