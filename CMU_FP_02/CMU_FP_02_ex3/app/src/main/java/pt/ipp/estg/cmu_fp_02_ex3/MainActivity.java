@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText mEditText;
     private Button mButton;
     private TextView mQuestion;
-    private int questions = 1, correct = 0, wrong = 0, a = 0, b = 0;
+    private int questions = 0, correct = 0, wrong = 0, a = 0, b = 0;
     private Random r = new Random();
 
     @Override
@@ -37,11 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         //mEditText.setText("");
-
-        /*
-        Percentagem de 90% quando respostas todas corretas porque aparece uma que não dá para responder
-        Supõe-se que o erro esteja no código em seguida
-         */
 
         if (questions == 10) {
             Intent i = new Intent(MainActivity.this, NewActivity.class);
