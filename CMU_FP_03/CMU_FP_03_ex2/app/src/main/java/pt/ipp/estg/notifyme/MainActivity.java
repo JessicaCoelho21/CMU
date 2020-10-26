@@ -1,18 +1,23 @@
-package pt.ipp.estg.cmu_fp_03_ex1;
+package pt.ipp.estg.notifyme;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button mButton;
+    private Button notify;
+    private Button update;
+    private Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +26,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         createNotificationChannel();
 
-        mButton = findViewById(R.id.button);
+        notify = findViewById(R.id.button);
+        update = findViewById(R.id.button2);
+        cancel = findViewById(R.id.button3);
 
-        mButton.setOnClickListener(this);
+        notify.setOnClickListener(this);
+        update.setOnClickListener(this);
+        cancel.setOnClickListener(this);
     }
 
     @Override
@@ -35,11 +44,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-        notificationManager.notify(1, mBuilder.build());
+
+        if (v.getId() == R.id.button) {
+            notificationManager.notify(1, mBuilder.build());
+        }
+
+        if (v.getId() == R.id.button2) {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.transferir);
+
+            mBuilder.setContentTitle("Título Alterado!!");
+            mBuilder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap)).build();
+            notificationManager.notify(1, mBuilder.build());
+        }
+
+        if (v.getId() == R.id.button3) {
+            notificationManager.cancel(1);
+        }
     }
 
     private void createNotificationChannel() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = getString(R.string.channel_name);
             String description = getString(R.string.channel_description);
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
