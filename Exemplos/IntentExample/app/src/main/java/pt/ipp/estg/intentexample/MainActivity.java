@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         contactos = findViewById(R.id.button);
 
         contactos.setOnClickListener(this);
-
     }
 
     @Override
