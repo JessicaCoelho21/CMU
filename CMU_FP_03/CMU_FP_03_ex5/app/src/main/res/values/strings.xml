@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CMU_FP_03_ex5</string>
+    <string name="channel_name">Nome</string>
+    <string name="channel_description">Description</string>
+</resources>
