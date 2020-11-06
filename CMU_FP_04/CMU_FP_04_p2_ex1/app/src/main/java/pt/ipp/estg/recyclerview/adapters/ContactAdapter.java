@@ -17,10 +17,9 @@ import pt.ipp.estg.recyclerview.R;
 import pt.ipp.estg.recyclerview.models.Contacts;
 
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> implements View.OnClickListener {
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
     private Context mContext;
     private List<Contacts> mContacts;
-    private Contacts contact;
 
     public ContactAdapter(Context context, List<Contacts> contacts) {
         mContext = context;
@@ -48,7 +47,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     @Override
     public void onBindViewHolder(ContactViewHolder viewHolder, int position) {
         //Get the data model based on position
-        contact = mContacts.get(position);
+        Contacts contact = mContacts.get(position);
 
         //Set name
         TextView textView = viewHolder.nameTextView;
@@ -59,7 +58,14 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         button.setText(contact.ismOnline() ? "Message" : "Offline");
         button.setEnabled(contact.ismOnline());
 
-        button.setOnClickListener(this);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext, ContactDetails.class);
+                i.putExtra("Contact", contact);
+                mContext.startActivity(i);
+            }
+        });
 
         ImageView image = viewHolder.online;
 
@@ -68,13 +74,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         } else {
             image.setImageResource(R.drawable.red);
         }
-    }
-
-    @Override
-    public void onClick(View v) {
-        Intent i = new Intent(mContext, ContactDetails.class);
-        i.putExtra("Contact", contact);
-        mContext.startActivity(i);
     }
 
     public class ContactViewHolder extends RecyclerView.ViewHolder {
