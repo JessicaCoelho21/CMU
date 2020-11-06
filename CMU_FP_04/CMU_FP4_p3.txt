@@ -1,0 +1,5 @@
+1 - Qual das seguintes afirmações sobre RecyclerView é falsa? (selecione apenas uma)
+R.: Não é necessário um layout manager para a RecyclerView lidar com a hierarquia e com o rView lidar com a hierarquia e com o layout de cada View.
+
+2 - Que interface é necessário implementar de modo a criar eventos quando o utilizar clica na RecyclerView? Selecione uma.
+R.: RecyclerView.Adapter
