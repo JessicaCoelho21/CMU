@@ -1,5 +1,6 @@
 package pt.ipp.estg.recyclerviewquestions.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -20,6 +22,7 @@ import pt.ipp.estg.recyclerviewquestions.models.QuestionModel;
 public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.QuestionViewHolder>{
     private Context mContext;
     private List<QuestionModel> mQuestions;
+    public static final int REQUEST_CODE = 1;
 
     public QuestionsAdapter(Context mContext, List<QuestionModel> mQuestions) {
         this.mContext = mContext;
@@ -40,7 +43,7 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.Ques
     }
 
     @Override
-    public void onBindViewHolder(QuestionViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull QuestionViewHolder holder, int position) {
         //Get the data model based on position
         QuestionModel question = mQuestions.get(position);
 
@@ -56,7 +59,9 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.Ques
             public void onClick(View v) {
                 Intent i = new Intent(mContext, QuestionAnswer.class);
                 i.putExtra("Question", question);
-                mContext.startActivity(i);
+                i.putExtra("Pos", position);
+                //mContext.startActivity(i);
+                ((Activity) mContext).startActivityForResult(i, REQUEST_CODE);
             }
         });
 
@@ -66,9 +71,16 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsAdapter.Ques
             image.setImageResource(R.drawable.green);
         } else if (question.isStatus().equals("wrong")) {
             image.setImageResource(R.drawable.red);
-        } else if (question.isStatus().equals("empty")) {
+        } else {
             image.setImageResource(R.drawable.yellow);
         }
+    }
+
+    public void update(int pos, QuestionModel question) {
+        mQuestions.remove(mQuestions.get(pos));
+        mQuestions.add(pos, question);
+        notifyItemChanged(pos);
+        notifyDataSetChanged();
     }
 
     @Override

@@ -5,11 +5,13 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import pt.ipp.estg.recyclerviewquestions.adapters.QuestionsAdapter;
 import pt.ipp.estg.recyclerviewquestions.models.QuestionModel;
@@ -24,13 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Create questions list
-        List<QuestionModel> questions = new ArrayList<QuestionModel>();
-        questions.add(new QuestionModel("Title1", "Description", "Resposta", "empty"));
-        questions.add(new QuestionModel("Title2", "Description", "Resposta", "empty"));
-        questions.add(new QuestionModel("Title3", "Description", "Resposta", "empty"));
-        questions.add(new QuestionModel("Title4", "Description", "Resposta", "empty"));
-        questions.add(new QuestionModel("Title5", "Description", "Resposta", "empty"));
-        questions.add(new QuestionModel("Title6", "Description", "Resposta", "empty"));
+        List<QuestionModel> questions = createQuestions(3);
 
         //Create contacts adapter
         adapter = new QuestionsAdapter(this, questions);
@@ -47,6 +43,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == QuestionsAdapter.REQUEST_CODE && resultCode == RESULT_OK) {
+            QuestionModel passedItem = (QuestionModel) data.getExtras().get("Item");
+
+            int postition = (Integer) data.getExtras().get("repos");
+
+            adapter.update(postition, passedItem);
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    private List<QuestionModel> createQuestions (int size) {
+        List<QuestionModel> list = new ArrayList<>(size);
+        Random r = new Random();
+
+        for(int i = 0; i < size; i++) {
+            int a = r.nextInt(10);
+            int b = r.nextInt(10);
+            int answer = a + b;
+
+            String description = ("Qual é o valor de " + a + " + " + b + "?");
+
+            list.add(i, new QuestionModel("Question " + (i + 1), description, String.valueOf(answer)));
+        }
+
+        return list;
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         Log.d("MAIN_ACTIVITY", "onStart()");
@@ -55,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        adapter.notifyDataSetChanged();
+
         Log.d("MAIN_ACTIVITY", "onResume()");
     }
 

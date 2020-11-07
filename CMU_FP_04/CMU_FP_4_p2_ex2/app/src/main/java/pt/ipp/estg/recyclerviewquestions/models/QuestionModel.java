@@ -8,11 +8,11 @@ public class QuestionModel implements Serializable {
     private String answer;
     private String status;
 
-    public QuestionModel(String title, String description, String answer, String status) {
+    public QuestionModel(String title, String description, String answer) {
         this.title = title;
         this.description = description;
         this.answer = answer;
-        this.status = status;
+        this.status = "";
     }
 
     public String getTitle() {
