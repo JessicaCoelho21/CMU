@@ -2,7 +2,6 @@ package pt.ipp.estg.recyclerviewquestions;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,8 +39,6 @@ public class QuestionAnswer extends AppCompatActivity {
                 } else if(!answer.getText().toString().equals(question.getAnswer())) {
                     question.setStatus("wrong");
                 }
-
-                finish();
             }
         });
     }
