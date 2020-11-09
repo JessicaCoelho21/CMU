@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CMU_FP_05_ex2</string>
+    <string name="select">Select</string>
+    <string name="name">"Name: "</string>
+    <string name="country">Country:</string>
+    <string name="details">Details</string>
+    <string name="city">City</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
