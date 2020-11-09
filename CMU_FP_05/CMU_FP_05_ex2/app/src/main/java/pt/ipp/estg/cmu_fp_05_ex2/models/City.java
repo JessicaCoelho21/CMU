@@ -7,33 +7,21 @@ public class City implements Serializable {
     private String country;
     private String description;
 
-    public City(String city, String country) {
+    public City(String city, String country, String description) {
         this.city = city;
         this.country = country;
-        this.description = "";
+        this.description = description;
     }
 
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }

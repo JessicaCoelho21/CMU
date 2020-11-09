@@ -4,19 +4,25 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import pt.ipp.estg.cmu_fp_05_ex2.R;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RecyclerFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import pt.ipp.estg.cmu_fp_05_ex2.R;
+import pt.ipp.estg.cmu_fp_05_ex2.adapters.CitiesAdapter;
+import pt.ipp.estg.cmu_fp_05_ex2.models.City;
+
 public class RecyclerFragment extends Fragment {
+    private RecyclerView recyclerView;
+    private CitiesAdapter adapter;
+    private Context context;
 
     public RecyclerFragment() {
         // Required empty public constructor
@@ -31,6 +37,7 @@ public class RecyclerFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        this.context = context;
     }
 
     @Override
@@ -42,6 +49,26 @@ public class RecyclerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View mContentView = inflater.inflate(R.layout.fragment_recycler, container, false);
+
+        //Create cities list
+        List<City> cities = new ArrayList<City>();
+        cities.add(new City("Porto", "Portugal", "Cidade do Porto"));
+        cities.add(new City("Lisboa", "Portugal", "Cidade de Lisboa"));
+        cities.add(new City("Braga", "Portugal", "Cidade de Braga"));
+
+        //Create cities adapter
+        adapter = new CitiesAdapter(context, cities);
+
+        //Set RecyclerView Adapter
+        recyclerView = mContentView.findViewById(R.id.recycler2);
+        recyclerView.setAdapter(adapter);
+
+        //Set LayoutManager
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+        //Divide RecyclerView elements with a gray line
+        recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
+
         return mContentView;
     }
 }

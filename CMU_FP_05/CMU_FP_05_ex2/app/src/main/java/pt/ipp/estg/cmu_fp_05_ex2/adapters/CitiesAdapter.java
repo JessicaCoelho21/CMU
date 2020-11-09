@@ -11,12 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import pt.ipp.estg.cmu_fp_05_ex2.Interface;
+import pt.ipp.estg.cmu_fp_05_ex2.MainActivity;
 import pt.ipp.estg.cmu_fp_05_ex2.R;
 import pt.ipp.estg.cmu_fp_05_ex2.models.City;
 
 public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CitiesViewHolder> {
     private Context mContext;
-    private List <City> mCities;
+    private List<City> mCities;
 
     public CitiesAdapter(Context mContext, List<City> mCities) {
         this.mContext = mContext;
@@ -47,6 +49,15 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CitiesView
 
         cityName.setText(city.getCity());
         countryName.setText(city.getCountry());
+
+        Button button = holder.button;
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity) mContext).sendTextToFragment(city);
+            }
+        });
     }
 
     @Override
@@ -54,7 +65,7 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.CitiesView
         return mCities.size();
     }
 
-    public class CitiesViewHolder extends RecyclerView.ViewHolder{
+    public class CitiesViewHolder extends RecyclerView.ViewHolder {
         public TextView nameCity;
         public TextView nameCountry;
         public Button button;
