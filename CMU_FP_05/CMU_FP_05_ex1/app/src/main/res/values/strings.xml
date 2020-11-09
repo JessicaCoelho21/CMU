@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">CMU_FP_05_ex1</string>
+    <string name="escreva_um_texto">Escreva um texto</string>
+    <string name="texto">Texto</string>
+    <string name="abrir">Abrir</string>
+</resources>
