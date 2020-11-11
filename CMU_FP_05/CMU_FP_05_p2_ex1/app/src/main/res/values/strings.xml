@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CMU_FP_05_p2_ex1</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="cancel">Cancel</string>
 </resources>

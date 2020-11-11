@@ -1,0 +1,10 @@
+1 - Que subclasse de Fragment apresenta uma lista vertical de itens que é gerida por um adapter?
+R.: ListFragment()
+
+2 - Qual das seguintes apresenta a melhor sequência para adicionar um fragment a uma activity que se encontra em execução?
+R.: Declarar a localização para o fragment dentro do ficheiro de layout da activity utilizando o view group <FrameLayout>. De seguida obter a instância do fragment e FragmentManager, iniciar a transação, utilizar a transação add(), realizar o commit da transação.
+
+3 - Qual dos seguintes permite a obtenção de uma referência para um fragment utilizando o recurso de layout do fragmento?
+R.: 
+SimpleFragment fragment = (SimpleFragment)
+fragmentManager.findFragmentById(R.id.fragment_container);
