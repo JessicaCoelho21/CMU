@@ -1,0 +1,7 @@
+Questão 1
+Em que método do ciclo de vida tem de guardar o estado da aplicação para as shared preferences?
+R.: onStop()
+
+Questão 2
+Em que método do ciclo de vida se realiza o restauro do estado da aplicação?
+R.: onStart()
