@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">CMU_FP_06_ex1</string>
+    <string name="person">Person</string>
+    <string name="message">Message</string>
+    <string name="branco">Branco</string>
+    <string name="amarelo">Amarelo</string>
+    <string name="vermelho">Vermelho</string>
+    <string name="escolha_uma_cor_de_fundo">Escolha uma cor de fundo:</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reset">Reset</string>
+    <string name="delete">Deseja apagar todas as suas definições?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
 </resources>
