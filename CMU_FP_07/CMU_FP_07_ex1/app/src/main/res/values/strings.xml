@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CMU_FP_07_ex1</string>
+    <string name="person">Person</string>
+    <string name="delete">Delete</string>
+    <string name="number">Contact Number</string>
+    <string name="phone">Phone</string>
+    <string name="save">Save</string>
+</resources>
