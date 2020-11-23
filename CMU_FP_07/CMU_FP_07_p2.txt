@@ -1,0 +1,13 @@
+Questão 1
+Quais as vantagens de utilização de uma base de dados Room?
+R.:
+- Criação e gestão automática da uma base de dados SQLite em Android.
+- Eliminação de código repetitivo
+- A utilização de um DAO fornece um mecanismo para mapear os métodos Java com queries à base de dados
+
+Questão 2
+O que é um DAO?
+R.:
+- Acrónimo para Data Access Object
+- Uma interface anotada que mapeia os métodos Java a queries SQLite.
+
